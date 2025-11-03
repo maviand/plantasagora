@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Botánica de Ágora Mall - Por ANV</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Alpine.js para interactividad -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Configuración de la paleta de colores de ANV en Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anv-olive': '#5B6B4C', // Verde Oliva del logo
+                        'anv-earth': '#735B46', // Marrón Tierra del logo
+                        'anv-lime': '#B3C458',  // Lima del logo
+                        'anv-dark-text': '#3D352E', // Un marrón casi negro para texto
+                        'anv-light-bg': '#F8F7F4', // Un fondo crema/hueso muy claro
+                    },
+                    fontFamily: {
+                        'heading': ['"Times New Roman"', 'Times', 'serif'], // Una fuente elegante para títulos
+                        'body': ['"Arial"', 'sans-serif'], // Una fuente limpia para el cuerpo
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'body', sans-serif;
+            background-color: #F8F7F4; /* Fondo 'anv-light-bg' */
+            color: #3D352E; /* Texto 'anv-dark-text' */
+        }
+        .font-heading {
+            font-family: 'heading', serif;
+        }
+        /* Estilos para la pestaña activa */
+        .tab-button.active {
+            border-bottom: 2px solid #5B6B4C; /* Borde 'anv-olive' */
+            color: #5B6B4C; /* Color 'anv-olive' */
+            font-weight: 600;
+        }
+        /* Estilos para la pestaña inactiva */
+        .tab-button {
+            color: #735B46; /* Color 'anv-earth' */
+            opacity: 0.7;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-anv-light-bg">
+
+    <!-- Encabezado -->
+    <header class="py-6 bg-white shadow-md">
+        <div class="container mx-auto px-6 flex justify-center items-center">
+            <!-- Placeholder para el Logo de ANV -->
+            <img 
+                src="https://i.imgur.com/8fW7Cur.png" 
+                alt="Logo de Arquitectura y Naturaleza en Verde" 
+                class="h-20"
+                onerror="this.alt='Logo de ANV'; this.src='https://placehold.co/250x80/5B6B4C/FFFFFF?text=ANV';"
+            >
+        </div>
+    </header>
+
+    <!-- Título Principal -->
+    <section class="text-center py-12 px-6">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold text-anv-olive">El Jardín de Ágora Mall Santiago</h1>
+        <p class="text-lg md:text-xl text-anv-earth mt-4">Una Guía Botánica por Arquitectura y Naturaleza en Verde</p>
+        <p class="max-w-3xl mx-auto mt-6 text-anv-dark-text">
+            En Arquitectura y Naturaleza en Verde (ANV), creemos que la naturaleza es parte integral de nuestros entornos urbanos. Para Ágora Mall Santiago, hemos diseñado un paisaje interior y exterior que no solo deleita la vista, sino que también crea ambientes de bienestar. Esta guía interactiva te invita a explorar las fascinantes plantas que dan vida a cada rincón.
+        </p>
+    </section>
+
+    <!-- Galería de Plantas -->
+    <main class="container mx-auto px-6 py-8">
+        <div id="plant-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Las tarjetas de plantas se insertarán aquí dinámicamente -->
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-anv-dark-text text-anv-light-bg py-12 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <img 
+                src="https://i.imgur.com/8fW7Cur.png" 
+                alt="Logo de Arquitectura y Naturaleza en Verde" 
+                class="h-16 mx-auto mb-6"
+                onerror="this.alt='Logo de ANV'; this.src='https://placehold.co/200x60/FFFFFF/3D352E?text=ANV';"
+            >
+            <p class="font-heading text-xl text-anv-lime">Creando Experiencias Botánicas</p>
+            <p class="mt-4 text-sm opacity-80">
+                ¿Interesado en transformar tu espacio con la magia de la naturaleza? <br>
+                Contacta a Arquitectura y Naturaleza en Verde.
+            </p>
+            <div class="mt-4 text-sm text-anv-lime">
+                <a href="mailto:mguerra@portalanv.com" class="hover:underline">mguerra@portalanv.com</a> | 
+                <a href="tel:+18098684195" class="hover:underline">809-868-4195</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para los datos y la lógica -->
+    <script>
+        // Base de datos de las plantas
+        const plantData = [
+            {
+                id: 1,
+                name: 'Aglaonema (Dólar)',
+                scientific: 'Aglaonema spp.',
+                imgSrc: 'https://i.imgur.com/g2sBtk9.png',
+                origin: 'Regiones tropicales y subtropicales de Asia.',
+                description: 'Conocida por su follaje espectacularmente variado en colores (verde, rojo, rosa, crema). Incluye variedades como "Aglonemas Variegada" y "Aglonemas Rojas".',
+                role: 'Aportan toques de color vibrante y textura en zonas de semisombra, mejorando la calidad del aire y la estética de los interiores.',
+                fact: 'Algunas variedades son famosas por su capacidad de purificar el aire según estudios de la NASA.',
+                careLight: 'Luz indirecta baja a media',
+                careWater: 'Riego moderado'
+            },
+            {
+                id: 2,
+                name: 'Anthurium (Anturio)',
+                scientific: 'Anthurium spp.',
+                imgSrc: 'https://i.imgur.com/z5jOplA.png',
+                origin: 'Selvas tropicales de América Central y del Sur.',
+                description: 'Destacan por sus brácteas cerosas y brillantes (comúnmentamente confundidas con flores). Incluye variedades como "Anthurium Superboom" y "Anthurium Corrugado".',
+                role: 'Añaden acentos exóticos y color duradero en jardineras y macetas, creando puntos focales visuales.',
+                fact: 'Lo que vemos como "flor" es en realidad una bráctea modificada llamada espata, que protege la verdadera inflorescencia.',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Suelo húmedo'
+            },
+            {
+                id: 3,
+                name: 'Dracaena (Drácena)',
+                scientific: 'Dracaena reflexa',
+                imgSrc: 'https://i.imgur.com/LzOrn1p.png',
+                origin: 'Madagascar, Mauricio y otras islas del Océano Índico.',
+                description: 'Arbusto leñoso con hojas lanceoladas y brillantes. La variedad \'Song of India\' (Canción de la India) es popular por sus hojas variegadas con bordes amarillos.',
+                role: 'Proporciona estructura vertical y un follaje elegante, ideal para definir espacios o añadir altura en composiciones de jardineras.',
+                fact: 'Su nombre común "Canción de la India" hace referencia a la belleza de sus hojas variegadas.',
+                careLight: 'Luz brillante indirecta a semisombra',
+                careWater: 'Riego moderado'
+            },
+            {
+                id: 4,
+                name: 'Copey',
+                scientific: 'Clusia rosea',
+                imgSrc: 'https://i.imgur.com/1rpg96D.png',
+                origin: 'Indias Occidentales, Florida, Centroamérica y Sudamérica.',
+                description: 'Árbol o arbusto de crecimiento denso con hojas obovadas, gruesas y cerosas de un verde oscuro brillante.',
+                role: 'Utilizado como arbusto ornamental o pequeño árbol para setos, pantallas verdes o como elemento escultórico.',
+                fact: 'Sus hojas son tan duras que se pueden grabar mensajes en ellas, de ahí su apodo "árbol de autógrafos".',
+                careLight: 'Pleno sol a semisombra',
+                careWater: 'Riego regular'
+            },
+            {
+                id: 5,
+                name: 'Ficus Lirata (Árbol lira)',
+                scientific: 'Ficus lyrata',
+                imgSrc: 'https://i.imgur.com/lTLCQfW.png',
+                origin: 'Selvas tropicales de África occidental.',
+                description: 'Distinguido por sus enormes hojas en forma de lira, de color verde oscuro brillante, con venas prominentes.',
+                role: 'Funciona como una pieza central dramática, aportando una fuerte declaración arquitectónica con su follaje exuberante.',
+                fact: 'Sus hojas pueden llegar a medir hasta 45 cm de largo y 30 cm de ancho, de ahí su apodo de "higuera de hoja de violín".',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Riego moderado'
+            },
+            {
+                id: 6,
+                name: 'Gri gri (Olivo negro)',
+                scientific: 'Bucida buceras',
+                imgSrc: 'https://i.imgur.com/QHLtd3N.png',
+                origin: 'Sur de Florida, Caribe, México y Centroamérica.',
+                description: 'Árbol de crecimiento lento a moderado con una copa densa y un tronco a menudo retorcido. Sus hojas pequeñas y verdes oscuro le dan una textura fina.',
+                role: 'Utilizado como árbol de sombra, acento paisajístico o para la creación de alineaciones y avenidas en exteriores.',
+                fact: 'Es un árbol muy popular en paisajismo urbano por su resistencia a la sal y a la sequía una vez establecido.',
+                careLight: 'Pleno sol',
+                careWater: 'Riego moderado (establecido)'
+            },
+            {
+                id: 7,
+                name: 'Helecho Rizado',
+                scientific: 'Nephrolepis exaltata',
+                imgSrc: 'https://i.imgur.com/AD8fM3v.png',
+                origin: 'Regiones tropicales y subtropicales de todo el mundo.',
+                description: 'Follaje plumoso y arqueado, con frondas finamente divididas y rizadas. Apreciado por su textura suave y su capacidad para crear una sensación de frescura.',
+                role: 'Ideal para cestas colgantes, bordes de jardineras o como relleno en composiciones que requieren una textura etérea.',
+                fact: 'Es una de las plantas de interior más eficaces para eliminar contaminantes del aire.',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Suelo húmedo constante'
+            },
+            {
+                id: 8,
+                name: 'Medinilla',
+                scientific: 'Medinilla spp.',
+                imgSrc: 'https://i.imgur.com/p02NDhz.png',
+                origin: 'Sudeste asiático tropical (Filipinas).',
+                description: 'Arbusto tropical con hojas grandes y onduladas, y espectaculares inflorescencias colgantes de flores rosadas.',
+                role: 'Una joya botánica utilizada como planta de acento o focal en zonas protegidas, aportando un toque de lujo y exotismo.',
+                fact: 'El nombre "Magnifica" (de la especie *Medinilla magnifica*) hace honor a sus impresionantes flores.',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Suelo húmedo, alta humedad'
+            },
+            {
+                id: 9,
+                name: 'Monstera (Costilla de Adán)',
+                scientific: 'Monstera deliciosa',
+                imgSrc: 'https://i.imgur.com/RAU8BOO.png',
+                origin: 'Selvas tropicales del sur de México y América Central.',
+                description: 'Planta trepadora con enormes hojas coriáceas de color verde brillante, famosas por sus profundas hendiduras y perforaciones.',
+                role: 'Una planta icónica que aporta un fuerte elemento tropical y una textura audaz, ideal para un ambiente selvático y moderno.',
+                fact: 'Las perforaciones (fenestraciones) ayudan a la planta a resistir vientos fuertes y dejan pasar la luz a las hojas inferiores.',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Riego moderado'
+            },
+            {
+                id: 10,
+                name: 'Neoregelia (Bromelia)',
+                scientific: 'Neoregelia spp.',
+                imgSrc: 'https://i.imgur.com/1ggK36t.png',
+                origin: 'Selvas de Brasil.',
+                description: 'Forma rosetas de hojas anchas y a menudo coloridas, con centros que se tiñen de rojo, rosa o púrpura intenso antes de florecer.',
+                role: 'Proporciona un toque de color exótico y una textura interesante en jardineras y terrarios.',
+                fact: 'Al igual que otras bromelias, la Neoregelia recoge agua en el centro de su roseta de hojas.',
+                careLight: 'Luz brillante filtrada',
+                careWater: 'Agua en el centro de la roseta'
+            },
+            {
+                id: 11,
+                name: 'Palito de Leche (Arbusto de lápiz)',
+                scientific: 'Euphorbia tirucalli',
+                imgSrc: 'https://i.imgur.com/9IMsdgQ.png',
+                origin: 'África.',
+                description: 'Arbusto suculento con tallos cilíndricos y delgados que se ramifican profusamente, asemejándose a lápices verdes.',
+                role: 'Utilizada por su forma arquitectónica y su textura única, ideal para diseños modernos y de bajo mantenimiento.',
+                fact: 'Produce una savia lechosa (látex) que es irritante, pero se investiga su potencial como biocombustible.',
+                careLight: 'Pleno sol',
+                careWater: 'Pocos riegos, suelo seco'
+            },
+            {
+                id: 12,
+                name: 'Planta ZZ (Samia)',
+                scientific: 'Zamioculcas zamiifolia',
+                imgSrc: 'https://i.imgur.com/B9NJFZF.png',
+                origin: 'África Oriental.',
+                description: 'Planta de hojas pinnadas y brillantes, de un verde oscuro intenso. Famosa por su extrema resistencia.',
+                role: 'Una elección perfecta para áreas de bajo mantenimiento, oficinas y zonas con iluminación limitada.',
+                fact: 'Almacena agua en sus rizomas subterráneos, lo que le permite sobrevivir largos periodos sin riego.',
+                careLight: 'Luz baja a media',
+                careWater: 'Pocos riegos, dejar secar'
+            },
+            {
+                id: 13,
+                name: 'Tabacón',
+                scientific: 'Anthurium crassinervium',
+                imgSrc: 'https://i.imgur.com/D80TmwR.png',
+                origin: 'Antillas y América del Sur.',
+                description: 'Se distingue por sus grandes hojas rígidas y brillantes con venas muy marcadas y elevadas, dándole una textura similar al cuero.',
+                role: 'Aporta una textura visual impactante y un toque tropical robusto. Ideal para jardineras de gran formato.',
+                fact: 'Sus hojas son tan duras que se parecen a las del tabaco, de ahí su nombre común.',
+                careLight: 'Luz brillante indirecta',
+                careWater: 'Riego regular, alta humedad'
+            },
+            {
+                id: 14,
+                name: 'Ciruelillo (Jocote)',
+                scientific: 'Spondias purpurea',
+                imgSrc: 'https://i.imgur.com/TzfZ6r5.png',
+                origin: 'América tropical.',
+                description: 'Árbol o arbusto caducifolio que produce pequeños frutos ovalados de color rojo, amarillo o púrpura, muy apreciados.',
+                role: 'Utilizado en áreas donde se busca un elemento frutal y decorativo, ya sea en jardines exteriores o en macetas grandes.',
+                fact: 'Los frutos son comestibles y muy populares en América Latina, conocidos por una variedad de nombres.',
+                careLight: 'Pleno sol',
+                careWater: 'Riego moderado'
+            }
+        ];
+
+        // Función para crear la lógica de una tarjeta (con Alpine.js)
+        function plantCardComponent(plant) {
+            return {
+                plant: plant,
+                activeTab: 'description', // Pestaña activa por defecto
+            };
+        }
+
+        // Cargar las plantas en la galería
+        document.addEventListener('DOMContentLoaded', () => {
+            const gallery = document.getElementById('plant-gallery');
+            plantData.forEach(plant => {
+                const card = document.createElement('div');
+                card.className = 'flex flex-col bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl';
+                card.setAttribute('x-data', `plantCardComponent(${JSON.stringify(plant)})`);
+                
+                card.innerHTML = `
+                    <!-- Imagen Placeholder -->
+                    <img src="${plant.imgSrc}" alt="Imagen de ${plant.name}" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/5B6B4C/FFFFFF?text=${encodeURIComponent(plant.name)}';">
+                    
+                    <!-- Encabezado de la Tarjeta (Fondo blanco, texto oscuro) -->
+                    <div class="p-5 bg-white border-t border-gray-100">
+                        <h3 class="font-heading text-2xl font-bold text-anv-olive">${plant.name}</h3>
+                        <p class="text-sm italic text-anv-dark-text">${plant.scientific}</p>
+                    </div>
+                    
+                    <!-- Contenido de la Tarjeta -->
+                    <div class="p-6 flex flex-col flex-grow pt-0">
+                        
+                        <!-- Pestañas (Tabs) -->
+                        <div class="border-b border-gray-200 mb-4">
+                            <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                                <button @click="activeTab = 'description'" 
+                                        :class="{ 'active': activeTab === 'description' }" 
+                                        class="tab-button whitespace-nowrap py-3 px-1 text-sm font-medium">
+                                    Descripción
+                                </button>
+                                <button @click="activeTab = 'details'" 
+                                        :class="{ 'active': activeTab === 'details' }" 
+                                        class="tab-button whitespace-nowrap py-3 px-1 text-sm font-medium">
+                                    Rol y Dato
+                                </button>
+                                <button @click="activeTab = 'care'" 
+                                        :class="{ 'active': activeTab === 'care' }" 
+                                        class="tab-button whitespace-nowrap py-3 px-1 text-sm font-medium">
+                                    🌿 Cuidados
+                                </button>
+                            </nav>
+                        </div>
+
+                        <!-- Contenido de las Pestañas -->
+                        <div class="flex-grow min-h-[160px]">
+                            <!-- Pestaña Descripción -->
+                            <div x-show="activeTab === 'description'" x-transition>
+                                <p class="text-sm text-anv-dark-text">${plant.description}</p>
+                            </div>
+                            <!-- Pestaña Detalles -->
+                            <div x-show="activeTab === 'details'" x-transition style="display: none;">
+                                <strong class="text-anv-olive">Rol en el Mall:</strong>
+                                <p class="text-sm text-anv-dark-text mb-2">${plant.role}</p>
+                                <strong class="text-anv-olive">Dato Curioso:</strong>
+                                <p class="text-sm text-anv-dark-text">${plant.fact}</p>
+                            </div>
+                            <!-- Pestaña Cuidados -->
+                            <div x-show="activeTab === 'care'" x-transition style="display: none;">
+                                <p class="text-sm text-anv-dark-text mb-2 flex items-center">
+                                    <span class="text-xl mr-2">☀️</span> 
+                                    <strong>Luz:</strong>&nbsp;${plant.careLight}
+                                </p>
+                                <p class="text-sm text-anv-dark-text flex items-center">
+                                    <span class="text-xl mr-2">💧</span> 
+                                    <strong>Riego:</strong>&nbsp;${plant.careWater}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
